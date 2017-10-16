@@ -15,7 +15,7 @@ RUN yum -y install yum-conf-sl-other
 
 # Add epel repository
 RUN cd /tmp
-RUN wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+RUN wget http://epel.mirror.nucleus.be//6/x86_64/epel-release-6-8.noarch.rpm
 RUN rpm -ivh epel-release-6-8.noarch.rpm
 RUN yum -y update
 RUN yum -y clean all
