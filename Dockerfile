@@ -1,5 +1,5 @@
 FROM ringo/scientific:6.8
-MAINTAINER Wim De Meester <deepskywim@gmail.com>
+LABEL Wim De Meester <deepskywim@gmail.com>
 
 # Update all packages
 RUN yum install -y yum-plugin-ovl
