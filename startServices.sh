@@ -11,11 +11,12 @@ else
   echo "No network found, not installing Scientific Linux updates"
 fi
 
-tail -F /var/log/httpd/error_log &
+service httpd24-httpd start
+
 chown -R mysql /var/lib/mysql
 mysql_install_db
 chown -R mysql /var/lib/mysql
-/usr/bin/mysqld_safe &
+service mysql start
 sleep 10s
 RESULT=`mysqlshow deepskylog | grep -o deepskylog`
 if [ "$RESULT" != "deepskylog" ]; then
@@ -25,7 +26,5 @@ if [ "$RESULT" != "deepskylog" ]; then
 fi
 
 # Add an admin user
-mysql -uroot -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'deepskylog'"
-mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION"
-
-exec httpd -D FOREGROUND
+#mysql -uroot -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'deepskylog'"
+#mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION"
