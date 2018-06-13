@@ -28,3 +28,5 @@ fi
 # Add an admin user
 #mysql -uroot -e "CREATE USER 'admin'@'%' IDENTIFIED BY 'deepskylog'"
 #mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION"
+
+tail -F /var/log/httpd24/error_log

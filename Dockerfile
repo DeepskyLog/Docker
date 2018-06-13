@@ -63,4 +63,4 @@ EXPOSE 3306
 COPY www.deepskylog.org.sql /www.deepskylog.org.sql
 
 RUN yum -y reinstall tzdata
-#CMD ["/startServices.sh"]
+CMD ["/startServices.sh"]
