@@ -11,6 +11,7 @@ else
   echo "No network found, not installing Scientific Linux updates"
 fi
 
+service php72-php-fpm start
 service httpd24-httpd start
 
 chown -R mysql /var/lib/mysql

@@ -41,11 +41,10 @@ RUN wget -O /etc/yum.repos.d/MariaDB101.repo https://raw.githubusercontent.com/D
 RUN yum clean all
 RUN yum -y install mysql mysql-devel mysql-server compat-mysql51
 
-# Install php 7.0
+# Install php 7.2
 RUN yum -y clean all
-RUN yum -y install rh-php70 rh-php70-php rh-php70-php-fpm rh-php70-php-mbstring rh-php70-php-gd rh-php70-php-pdo rh-php70-php-mysqlnd rh-php70-php-opcache
-RUN chkconfig rh-php70-php-fpm on
-RUN scl enable rh-php70 bash
+RUN yum -y install php72 php72-php-mbstring php72-php-pdo php72-php-json php72-php-pear php72-php-gd php72-php-common php72-php-mysqlnd php72-php-process php72-php-opcache php72-php-cli php72-php-zip php72-php-fpm
+RUN chkconfig php72-php-fpm on
 
 # Start httpd
 EXPOSE 80
